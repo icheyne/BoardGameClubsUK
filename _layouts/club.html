@@ -1,0 +1,86 @@
+---
+layout: default
+---
+
+<div class="club-detail">
+  <h1>{{ page.name }}</h1>
+
+  <div class="club-detail-meta">
+    <span class="tag tag-day">{{ page.day }}</span>
+    {% for d in page.secondary_days %}
+      <span class="tag tag-day">{{ d }}</span>
+    {% endfor %}
+    {% if page.frequency and page.frequency != "weekly" %}
+      <span class="tag">{{ page.frequency }}</span>
+    {% endif %}
+    {% if page.cost %}
+      <span class="tag tag-cost">{{ page.cost }}</span>
+    {% endif %}
+    {% if page.age_restriction %}
+      <span class="tag">{{ page.age_restriction }}</span>
+    {% endif %}
+  </div>
+
+  {% if page.location.lat and page.location.lng %}
+  <div class="detail-map" id="detail-map"></div>
+  {% endif %}
+
+  <dl class="detail-info">
+    <dt>Venue</dt>
+    <dd>{{ page.location.name }}</dd>
+
+    <dt>Address</dt>
+    <dd>{{ page.location.address }}</dd>
+
+    {% if page.time %}
+    <dt>Time</dt>
+    <dd>{{ page.time }}</dd>
+    {% endif %}
+
+    {% if page.frequency %}
+    <dt>Frequency</dt>
+    <dd>{{ page.frequency }}</dd>
+    {% endif %}
+
+    {% if page.cost %}
+    <dt>Cost</dt>
+    <dd>{{ page.cost }}</dd>
+    {% endif %}
+
+    {% if page.age_restriction %}
+    <dt>Age Restriction</dt>
+    <dd>{{ page.age_restriction }}</dd>
+    {% endif %}
+  </dl>
+
+  <div class="club-description">
+    <p>{{ page.description }}</p>
+    {{ content }}
+  </div>
+
+  <div class="club-links">
+    {% if page.website and page.website != "" %}
+      <a href="{{ page.website }}" target="_blank" rel="noopener">Website</a>
+    {% endif %}
+    {% if page.facebook and page.facebook != "" %}
+      <a href="{{ page.facebook }}" target="_blank" rel="noopener">Facebook</a>
+    {% endif %}
+  </div>
+</div>
+
+{% if page.location.lat and page.location.lng %}
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+        integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+        crossorigin=""></script>
+<script>
+  (function() {
+    var map = L.map('detail-map').setView([{{ page.location.lat }}, {{ page.location.lng }}], 15);
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+      maxZoom: 19
+    }).addTo(map);
+    L.marker([{{ page.location.lat }}, {{ page.location.lng }}]).addTo(map)
+      .bindPopup('<strong>{{ page.location.name | escape }}</strong><br>{{ page.location.address | escape }}');
+  })();
+</script>
+{% endif %}

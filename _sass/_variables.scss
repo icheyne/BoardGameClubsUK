@@ -1,0 +1,29 @@
+// Colors
+$color-primary: #2d6a4f;
+$color-primary-dark: #1b4332;
+$color-primary-light: #40916c;
+$color-accent: #d4a843;
+$color-accent-light: #e9c46a;
+$color-bg: #fafafa;
+$color-surface: #ffffff;
+$color-text: #1a1a2e;
+$color-text-light: #555;
+$color-border: #e0e0e0;
+$color-tag: #edf2ee;
+
+// Typography
+$font-stack: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+  Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+$font-mono: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+
+// Layout
+$max-width: 1200px;
+$sidebar-width: 420px;
+$border-radius: 8px;
+$border-radius-sm: 4px;
+
+// Breakpoints
+$bp-sm: 576px;
+$bp-md: 768px;
+$bp-lg: 992px;
+$bp-xl: 1200px;

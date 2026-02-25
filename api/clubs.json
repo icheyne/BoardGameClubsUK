@@ -1,0 +1,27 @@
+---
+layout: null
+---
+[
+  {% for club in site.clubs %}
+  {
+    "name": {{ club.name | jsonify }},
+    "slug": {{ club.slug | jsonify }},
+    "url": {{ club.url | relative_url | jsonify }},
+    "day": {{ club.day | jsonify }},
+    "secondary_days": {{ club.secondary_days | jsonify }},
+    "time": {{ club.time | jsonify }},
+    "frequency": {{ club.frequency | jsonify }},
+    "location": {
+      "name": {{ club.location.name | jsonify }},
+      "address": {{ club.location.address | jsonify }},
+      "lat": {{ club.location.lat }},
+      "lng": {{ club.location.lng }}
+    },
+    "cost": {{ club.cost | jsonify }},
+    "age_restriction": {{ club.age_restriction | jsonify }},
+    "website": {{ club.website | jsonify }},
+    "facebook": {{ club.facebook | jsonify }},
+    "description": {{ club.description | jsonify }}
+  }{% unless forloop.last %},{% endunless %}
+  {% endfor %}
+]

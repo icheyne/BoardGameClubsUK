@@ -1,0 +1,273 @@
+// Filter bar
+.filter-bar {
+  margin-bottom: 1rem;
+}
+
+.search-input {
+  width: 100%;
+  padding: 0.5rem 0.75rem;
+  border: 1px solid $color-border;
+  border-radius: $border-radius;
+  font-size: 0.95rem;
+  margin-bottom: 0.75rem;
+  outline: none;
+
+  &:focus {
+    border-color: $color-primary;
+    box-shadow: 0 0 0 2px rgba($color-primary, 0.15);
+  }
+}
+
+.day-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-bottom: 0.75rem;
+}
+
+.day-pill {
+  padding: 0.3rem 0.7rem;
+  border: 1px solid $color-border;
+  border-radius: 999px;
+  background: $color-surface;
+  font-size: 0.8rem;
+  color: $color-text-light;
+  transition: all 0.15s ease;
+
+  &:hover {
+    border-color: $color-primary-light;
+    color: $color-primary;
+  }
+
+  &.active {
+    background: $color-primary;
+    color: #fff;
+    border-color: $color-primary;
+  }
+}
+
+.locate-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.4rem 0.75rem;
+  background: $color-primary;
+  color: #fff;
+  border: none;
+  border-radius: $border-radius;
+  font-size: 0.85rem;
+  transition: background 0.15s;
+
+  &:hover {
+    background: $color-primary-dark;
+  }
+
+  &:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+}
+
+// Club cards
+.club-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.club-card {
+  background: $color-surface;
+  border: 1px solid $color-border;
+  border-radius: $border-radius;
+  padding: 0.875rem;
+  transition: box-shadow 0.15s ease;
+
+  &:hover {
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  }
+
+  .club-card-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 0.5rem;
+    margin-bottom: 0.35rem;
+  }
+
+  .club-name {
+    font-size: 1rem;
+    font-weight: 600;
+
+    a {
+      color: $color-primary-dark;
+
+      &:hover {
+        color: $color-primary;
+      }
+    }
+  }
+
+  .club-distance {
+    font-size: 0.75rem;
+    color: $color-text-light;
+    background: $color-tag;
+    padding: 0.15rem 0.5rem;
+    border-radius: 999px;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+
+  .club-meta {
+    font-size: 0.85rem;
+    color: $color-text-light;
+    margin-bottom: 0.35rem;
+
+    span + span::before {
+      content: " \00b7 ";
+    }
+  }
+
+  .club-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.3rem;
+  }
+
+  .tag {
+    display: inline-block;
+    font-size: 0.75rem;
+    padding: 0.1rem 0.45rem;
+    border-radius: $border-radius-sm;
+    background: $color-tag;
+    color: $color-primary;
+  }
+
+  .tag-day {
+    background: $color-primary;
+    color: #fff;
+  }
+
+  .tag-cost {
+    background: $color-accent-light;
+    color: $color-text;
+  }
+}
+
+// Club detail page
+.club-detail {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+
+  h1 {
+    color: $color-primary-dark;
+    margin-bottom: 0.5rem;
+  }
+
+  .club-detail-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .detail-map {
+    width: 100%;
+    height: 250px;
+    border-radius: $border-radius;
+    margin-bottom: 1.5rem;
+    border: 1px solid $color-border;
+  }
+
+  .detail-info {
+    margin-bottom: 1.5rem;
+
+    dt {
+      font-weight: 600;
+      font-size: 0.85rem;
+      color: $color-text-light;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+      margin-top: 1rem;
+
+      &:first-child {
+        margin-top: 0;
+      }
+    }
+
+    dd {
+      margin: 0.25rem 0 0 0;
+    }
+  }
+
+  .club-description {
+    line-height: 1.7;
+
+    p {
+      margin-bottom: 1rem;
+    }
+  }
+
+  .club-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-top: 1.5rem;
+
+    a {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      padding: 0.5rem 1rem;
+      border: 1px solid $color-primary;
+      border-radius: $border-radius;
+      font-size: 0.9rem;
+
+      &:hover {
+        background: $color-primary;
+        color: #fff;
+        text-decoration: none;
+      }
+    }
+  }
+}
+
+// Result count
+.result-count {
+  font-size: 0.85rem;
+  color: $color-text-light;
+  margin-bottom: 0.75rem;
+}
+
+// Noscript fallback
+noscript .club-list {
+  margin-top: 1rem;
+}
+
+// Leaflet popup overrides
+.leaflet-popup-content {
+  .popup-name {
+    font-weight: 600;
+    font-size: 0.95rem;
+    margin-bottom: 0.25rem;
+  }
+
+  .popup-meta {
+    font-size: 0.85rem;
+    color: $color-text-light;
+    line-height: 1.4;
+  }
+}
+
+// Marker cluster overrides
+.marker-cluster-small,
+.marker-cluster-medium,
+.marker-cluster-large {
+  background-color: rgba($color-primary, 0.3);
+
+  div {
+    background-color: $color-primary;
+    color: #fff;
+    font-weight: 600;
+  }
+}

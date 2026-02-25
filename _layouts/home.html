@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  {% include head.html %}
+</head>
+<body>
+  {% include nav.html %}
+  <main class="page-content">
+    <div class="home-layout">
+      <div class="map-container">
+        <div id="map"></div>
+      </div>
+      <div class="sidebar">
+        <div class="filter-bar">
+          <input type="text" class="search-input" id="search-input" placeholder="Search clubs by name or location...">
+          <div class="day-filters" id="day-filters">
+            <button class="day-pill active" data-day="all">All</button>
+            <button class="day-pill" data-day="Monday">Mon</button>
+            <button class="day-pill" data-day="Tuesday">Tue</button>
+            <button class="day-pill" data-day="Wednesday">Wed</button>
+            <button class="day-pill" data-day="Thursday">Thu</button>
+            <button class="day-pill" data-day="Friday">Fri</button>
+            <button class="day-pill" data-day="Saturday">Sat</button>
+            <button class="day-pill" data-day="Sunday">Sun</button>
+          </div>
+          <button class="locate-btn" id="locate-btn">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="3"/><line x1="12" y1="2" x2="12" y2="6"/><line x1="12" y1="18" x2="12" y2="22"/><line x1="2" y1="12" x2="6" y2="12"/><line x1="18" y1="12" x2="22" y2="12"/></svg>
+            Find my location
+          </button>
+        </div>
+        <div class="result-count" id="result-count"></div>
+        <div class="club-list" id="club-list"></div>
+
+        <noscript>
+          <div class="club-list">
+            {% assign sorted_clubs = site.clubs | sort: "day" %}
+            {% for club in sorted_clubs %}
+              {% include club-card.html club=club %}
+            {% endfor %}
+          </div>
+        </noscript>
+      </div>
+    </div>
+  </main>
+
+  <script>
+    window.GameClub = { baseurl: "{{ site.baseurl }}" };
+  </script>
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+          integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+          crossorigin=""></script>
+  <script src="https://unpkg.com/leaflet.markercluster@1.5.3/dist/leaflet.markercluster.js"></script>
+  <script src="{{ '/assets/js/map.js' | relative_url }}"></script>
+  <script src="{{ '/assets/js/search.js' | relative_url }}"></script>
+  <script src="{{ '/assets/js/app.js' | relative_url }}"></script>
+</body>
+</html>

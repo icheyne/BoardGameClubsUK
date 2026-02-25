@@ -1,0 +1,26 @@
+<div class="club-card">
+  <div class="club-card-header">
+    <div class="club-name">
+      <a href="{{ club.url | relative_url }}">{{ club.name }}</a>
+    </div>
+  </div>
+  <div class="club-meta">
+    <span>{{ club.location.name }}</span>
+    <span>{{ club.time | default: "See details" }}</span>
+  </div>
+  <div class="club-tags">
+    <span class="tag tag-day">{{ club.day }}</span>
+    {% for d in club.secondary_days %}
+      <span class="tag tag-day">{{ d }}</span>
+    {% endfor %}
+    {% if club.frequency and club.frequency != "weekly" %}
+      <span class="tag">{{ club.frequency }}</span>
+    {% endif %}
+    {% if club.cost %}
+      <span class="tag tag-cost">{{ club.cost }}</span>
+    {% endif %}
+    {% if club.age_restriction %}
+      <span class="tag">{{ club.age_restriction }}</span>
+    {% endif %}
+  </div>
+</div>
