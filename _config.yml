@@ -6,7 +6,7 @@ description: >-
 url: "https://boardgameclubs.uk"
 locale: "en_GB"
 baseurl: ""
-repository: ""
+repository: "BoardGameClubs/BoardGameClubs_Web"
 
 collections:
   clubs:

@@ -77,6 +77,6 @@ Find the club's file in the `_clubs/` folder, make your changes, and submit a pu
 
 ## Need Help?
 
-If you're not familiar with GitHub, you can [open an issue](https://github.com) with your club's details and we'll add it for you.
+If you're not familiar with GitHub, you can [open an issue](https://github.com/BoardGameClubs/BoardGameClubs_Web/issues/new) with your club's details and we'll add it for you.
 
 </div>

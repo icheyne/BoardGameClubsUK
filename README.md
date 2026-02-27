@@ -11,7 +11,7 @@ A community-built directory powered by an interactive map.
 [![MIT License](https://img.shields.io/badge/License-MIT-green)](#license)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-orange)](https://boardgameclubs.uk/contribute/)
 
-[Live Site](https://boardgameclubs.uk) · [Add a Club](https://boardgameclubs.uk/contribute/) · [Report a Bug](https://github.com)
+[Live Site](https://boardgameclubs.uk) · [Add a Club](https://boardgameclubs.uk/contribute/) · [Report a Bug](https://github.com/BoardGameClubs/BoardGameClubs_Web/issues/new)
 
 </div>
 
@@ -55,7 +55,7 @@ description: >-
 ---
 ```
 
-Not comfortable with GitHub? [Open an issue](https://github.com) with your club's details and we'll add it for you.
+Not comfortable with GitHub? [Open an issue](https://github.com/BoardGameClubs/BoardGameClubs_Web/issues/new) with your club's details and we'll add it for you.
 
 ## Running locally
 
