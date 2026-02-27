@@ -40,7 +40,7 @@
   padding: 0.7rem 2.25rem 0.7rem 1rem;
   border: 1.5px solid $color-border;
   border-radius: $border-radius;
-  font-size: 0.92rem;
+  font-size: 1rem;
   outline: none;
   background: $color-surface;
   color: $color-text;
@@ -67,7 +67,8 @@
     overflow-x: auto;
     -webkit-overflow-scrolling: touch;
     flex-wrap: nowrap;
-    padding-bottom: 2px;
+    padding: 3px;
+    margin: -3px;
   }
 }
 
