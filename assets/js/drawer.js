@@ -119,6 +119,18 @@
       sidebar.style.transform = '';
     }
 
+    // Prevent browser scroll-into-view on input focus inside drawer
+    var inputs = sidebar.querySelectorAll('input, select');
+    for (var i = 0; i < inputs.length; i++) {
+      inputs[i].addEventListener('focus', function () {
+        if (!mql.matches) return;
+        // Open drawer to half so input is visible without browser scrolling
+        setState(1);
+        // Undo any browser scroll the focus caused
+        window.scrollTo(0, 0);
+      });
+    }
+
     // Touch
     handle.addEventListener('touchstart', onTouchStart, { passive: true });
     handle.addEventListener('touchmove', onTouchMove, { passive: false });
