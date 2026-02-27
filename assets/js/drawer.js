@@ -1,5 +1,5 @@
 (function () {
-  var STATES = ['drawer-peek', 'drawer-half', 'drawer-full'];
+  var STATES = ['drawer-peek', 'drawer-half'];
   var mql = window.matchMedia('(max-width: 991px)');
   var sidebar, handle;
   var currentState = 0; // index into STATES
@@ -16,34 +16,29 @@
 
   function setState(index) {
     currentState = Math.max(0, Math.min(index, STATES.length - 1));
-    sidebar.classList.remove(STATES[0], STATES[1], STATES[2], 'drawer-dragging');
+    sidebar.classList.remove(STATES[0], STATES[1], 'drawer-dragging');
     sidebar.classList.add(STATES[currentState]);
   }
 
   function snapToNearest(currentY) {
     var height = sidebar.offsetHeight;
     var visible = height - currentY;
-    var peekVisible = 130;
+    var peekVisible = 220;
     var halfVisible = window.innerHeight * 0.5;
-    var fullVisible = height;
 
     var distances = [
       Math.abs(visible - peekVisible),
-      Math.abs(visible - halfVisible),
-      Math.abs(visible - fullVisible)
+      Math.abs(visible - halfVisible)
     ];
 
-    var minIndex = 0;
-    if (distances[1] < distances[minIndex]) minIndex = 1;
-    if (distances[2] < distances[minIndex]) minIndex = 2;
-    return minIndex;
+    return distances[1] < distances[0] ? 1 : 0;
   }
 
   function applyDrag(clientY) {
     var deltaY = clientY - startY;
     if (Math.abs(deltaY) > 4) didDrag = true;
     var newTranslate = startTranslate + deltaY;
-    var maxTranslate = sidebar.offsetHeight - 130;
+    var maxTranslate = sidebar.offsetHeight - 220;
     newTranslate = Math.max(0, Math.min(newTranslate, maxTranslate));
     sidebar.style.transform = 'translateY(' + newTranslate + 'px)';
   }
@@ -120,7 +115,7 @@
     if (mql.matches) {
       setState(0);
     } else {
-      sidebar.classList.remove(STATES[0], STATES[1], STATES[2], 'drawer-dragging');
+      sidebar.classList.remove(STATES[0], STATES[1], 'drawer-dragging');
       sidebar.style.transform = '';
     }
 
@@ -137,7 +132,7 @@
 
     mql.addEventListener('change', function () {
       if (!mql.matches) {
-        sidebar.classList.remove(STATES[0], STATES[1], STATES[2], 'drawer-dragging');
+        sidebar.classList.remove(STATES[0], STATES[1], 'drawer-dragging');
         sidebar.style.transform = '';
       } else {
         setState(0);

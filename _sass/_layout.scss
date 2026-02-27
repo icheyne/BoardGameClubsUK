@@ -80,23 +80,6 @@
     }
   }
 
-  .nav-github {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    padding: 0.4rem;
-    background: none;
-
-    svg {
-      width: 18px;
-      height: 18px;
-    }
-
-    &:hover {
-      background: $color-border;
-    }
-  }
-
   nav a {
     color: $color-text;
     padding: 0.4rem 0.9rem;
@@ -121,6 +104,24 @@
       &:hover {
         background: $color-accent-light;
       }
+    }
+
+  }
+
+  .nav-github {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.4rem;
+    background: none;
+
+    svg {
+      width: 18px;
+      height: 18px;
+    }
+
+    &:hover {
+      background: $color-border;
     }
   }
 
@@ -266,18 +267,16 @@
     overflow-y: auto;
     -webkit-overflow-scrolling: touch;
 
-    transform: translateY(calc(100% - 130px));
+    transform: translateY(calc(100% - 220px));
 
     &.drawer-peek {
-      transform: translateY(calc(100% - 130px));
+      transform: translateY(calc(100% - 220px));
     }
 
     &.drawer-half {
-      transform: translateY(calc(100% - 50vh));
-    }
-
-    &.drawer-full {
-      transform: translateY(0);
+      transform: translateY(calc(100% - 65vh));
+      height: 65vh;
+      overflow-y: auto;
     }
 
     &.drawer-dragging {
@@ -300,7 +299,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 22px 0 14px;
+    padding: 14px 0 10px;
     cursor: grab;
     touch-action: none;
 
@@ -310,19 +309,30 @@
     -webkit-user-select: none;
     user-select: none;
 
-    span {
-      width: 48px;
-      height: 5px;
-      background: $color-border;
-      border-radius: 3px;
+    .drawer-chevron {
+      width: 24px;
+      height: 24px;
+      color: $color-text-light;
+      transition: transform 0.3s ease;
     }
   }
 }
 
-// Hide footer on mobile home page
-body:has(.home-layout) .site-footer {
+.sidebar.drawer-half .drawer-chevron {
+  transform: rotate(180deg);
+}
+
+// Lock body on mobile home page
+body:has(.home-layout) {
   @media (max-width: $bp-lg - 1) {
-    display: none;
+    height: 100vh;
+    overflow: hidden;
+  }
+
+  .site-footer {
+    @media (max-width: $bp-lg - 1) {
+      display: none;
+    }
   }
 }
 
