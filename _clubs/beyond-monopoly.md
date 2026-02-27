@@ -6,9 +6,9 @@ time: "10:00am - 9:00pm (1st & 3rd Saturdays; also 2nd & 4th Friday evenings 5pm
 frequency: "Fortnightly"
 location:
   name: "The Bar Convent"
-  address: "Blossom Street, York"
-  lat: 53.9557
-  lng: -1.0935
+  address: "Bar Convent, York, YO24 1AQ"
+  lat: 53.9549
+  lng: -1.0918
 cost: "Free"
 age_restriction: ""
 website: "https://bmyork.wordpress.com/"
